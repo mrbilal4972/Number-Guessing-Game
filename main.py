@@ -17,3 +17,13 @@ while randNo!=userGuess:
     totalGuesses += 1
 
 print(f'''you got the correct answer after "{totalGuesses}" Guesses''')
+
+# If Highest score was made it will stored in file hiScore.txt
+with open("hiScore.txt") as f:
+    prevScore = int(f.read())
+
+if totalGuesses<prevScore:
+    print("you Broke the Highest Score")
+    newScore = str(totalGuesses)
+    with open("hiScore.txt", 'w') as f:
+        f.write(newScore)
